@@ -70,9 +70,9 @@ Table avatar_statistic {
 Ref: match.op1_id > player.id // many-to-one
 Ref: match.op2_id > player.id // many-to-one
 
-Ref: match_result.winner_id <> player.id
+Ref: match_result.winner_id - player.id
 
-Ref: match.result_id <> match_result.id 
+Ref: match.result_id - match_result.id 
 
 Ref: bounty_completion.player_id > player.id
 Ref: bounty_completion.bounty_id > bounty.id
