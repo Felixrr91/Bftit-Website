@@ -25,8 +25,4 @@ app.use( express.urlencoded( { extended: false } ) );
 app.use( express.static( path.join( __dirname, "static" ) ) );
 app.use( router );
 
-app.get( "/", ( req, res ) => {
-    res.render( "index", { projectName: "BFTIT" } );
-} );
-
 export default app;
