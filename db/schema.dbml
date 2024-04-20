@@ -2,14 +2,14 @@
 // Docs: https://dbml.dbdiagram.io/docs
 
 Table player {
-  id integer [primary key, not null]
+  id serial [primary key, not null]
   username varchar [not null]
   profile_image_url varchar
   created_at timestamp [not null]
 }
 
 Table match {
-  id integer [primary key, not null]
+  id serial [primary key, not null]
   result_id integer
   op1_id integer [not null]
   op2_id integer
@@ -17,37 +17,15 @@ Table match {
 }
 
 Table match_result {
-  id integer [primary key, not null]
+  id serial [primary key, not null]
   winner_id integer [not null]
   op1_avatar varchar [not null]
   op2_avatar varchar [not null]
   created_at timestamp [not null]
 }
 
-Table bounty {
-  id integer [primary key, not null]
-  title varchar [not null]
-  description varchar [not null]
-  value integer [not null]
-}
-
-Table bounty_completion {
-  id integer [primary key, not null]
-  player_id integer [not null]
-  match_result_id integer [not null]
-  bounty_id integer [not null]
-}
-
-Table score {
-  id integer [primary key, not null]
-  player_id integer [not null]
-  total_points integer
-  bounty_points integer
-  bounties_completed integer
-}
-
 Table match_statistic {
-  id integer [primary key, not null]
+  id serial [primary key, not null]
   player_id integer [not null]
   total_played integer
   total_won integer
@@ -55,13 +33,35 @@ Table match_statistic {
   ranked_won integer
 }
 
+Table bounty {
+  id serial [primary key, not null]
+  title varchar [not null]
+  description varchar [not null]
+  value integer [not null]
+}
+
+Table bounty_completion {
+  id serial [primary key, not null]
+  player_id integer [not null]
+  match_result_id integer [not null]
+  bounty_id integer [not null]
+}
+
+Table score {
+  id serial [primary key, not null]
+  player_id integer [not null]
+  total_points integer
+  bounty_points integer
+  bounties_completed integer
+}
+
 Table avatar {
-  id integer [primary key, not null]
+  id serial [primary key, not null]
   name varchar [not null]
 }
 
 Table avatar_statistic {
-  id integer [primary key, not null]
+  id serial [primary key, not null]
   player_id integer [not null]
   avatar_id integer [not null]
   count integer
