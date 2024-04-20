@@ -27,7 +27,7 @@
     "uuid": "^9.0.1"
   },
   "devDependencies": {
-    "@dbml/cli": "^3.4.0",
+    "@dbml/cli": "^3.4.1",
     "nodemon": "^3.1.0"
   }
 }
