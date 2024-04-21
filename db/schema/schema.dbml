@@ -11,16 +11,16 @@ Table player {
 Table match {
   id serial [primary key, not null]
   result_id integer
-  op1_id integer [not null]
-  op2_id integer
+  challenger_id integer [not null]
+  opponent_id integer
   created_at timestamp [not null]
 }
 
 Table match_result {
   id serial [primary key, not null]
   winner_id integer [not null]
-  op1_avatar varchar [not null]
-  op2_avatar varchar [not null]
+  challenger_avatar varchar [not null]
+  opponent_avatar varchar [not null]
   created_at timestamp [not null]
 }
 
@@ -67,8 +67,8 @@ Table avatar_statistic {
   count integer
 }
 
-Ref: match.op1_id > player.id // many-to-one
-Ref: match.op2_id > player.id // many-to-one
+Ref: match.challenger_id > player.id // many-to-one
+Ref: match.opponent_id > player.id // many-to-one
 
 Ref: match_result.winner_id - player.id
 
