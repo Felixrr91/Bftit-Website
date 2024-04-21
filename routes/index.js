@@ -1,6 +1,6 @@
-import * as db from "../db/index.js";
-import { getAllPlayers, createPlayer } from "../db/player.js";
 import express from "express";
+import * as db from "../db/index.js";
+import * as Player from "../db/player.js";
 
 const router = express.Router();
 
@@ -11,10 +11,10 @@ router.get( "/", ( req, res ) => {
 } );
 
 router.get( "/player", async ( req, res ) => {
-    const result = await createPlayer( "felix", "emperor.jpg" );
+    await Player.create( "felix", "emperor.jpg" );
 
-    const result2 = await getAllPlayers();
-    res.send( result2?.rows );
+    const result = await Player.getAll();
+    res.send( result?.rows );
 } );
 
 router.get( "/db", async ( req, res ) => {

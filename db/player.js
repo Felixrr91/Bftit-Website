@@ -1,18 +1,27 @@
+import { dateNowAsISO } from "../utils/index.js";
 import * as db from "./index.js";
 
-export async function createPlayer( name, profileImg ) {
-    const createdAt = new Date().toISOString();
-    const result = await db.query( `INSERT INTO player VALUES (default, '${name}', '${profileImg}', '${createdAt}');` );
+export async function create( name, profileImg ) {
+    const createdAt = dateNowAsISO();
+    const result = await db.query( `
+        INSERT INTO player
+        VALUES (
+            default,
+            '${name}',
+            '${profileImg}',
+            '${createdAt}'
+        );
+    ` );
 
-    console.log( "createPlayer", result );
+    console.log( "Player.create", result );
 
     return result;
 }
 
-export async function getAllPlayers() {
+export async function getAll() {
     const result = await db.query( "SELECT * FROM player;" );
 
-    console.log( "getAllPlayers", result?.rows );
+    console.log( "Player.getAll", result?.rows );
 
     return result;
 }
