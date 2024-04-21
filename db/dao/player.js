@@ -1,5 +1,5 @@
-import { dateNowAsISO } from "../utils/index.js";
-import * as db from "./index.js";
+import { dateNowAsISO } from "../../utils/index.js";
+import * as db from "../index.js";
 
 export async function create( name, profileImg ) {
     const createdAt = dateNowAsISO();

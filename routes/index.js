@@ -1,6 +1,6 @@
 import express from "express";
 import * as db from "../db/index.js";
-import * as Player from "../db/player.js";
+import * as Player from "../db/dao/player.js";
 
 const router = express.Router();
 
